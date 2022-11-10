@@ -17,7 +17,6 @@ const Header = () => {
       <li className="font-semibold">
         <Link to="/">Home</Link>
         <Link to="/foodservices">Services</Link>
-        <Link to="/reviews">My Reviews</Link>
       </li>
     </>
   );
@@ -33,6 +32,7 @@ const Header = () => {
   const afterLogin = (
     <>
       <li className="font-semibold">
+        <Link to="/reviews">My Reviews</Link>
         <Link onClick={handleLogOut} to="">
           Sign Out
         </Link>

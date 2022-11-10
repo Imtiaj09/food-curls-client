@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-const MyReviewCard = ({ reviewD }) => {
-  const { name, rating, serviceName, message, review } = reviewD;
+const MyReviewCard = ({ reviewD, handleDelete }) => {
+  const { _id, name, rating, serviceName, message, review } = reviewD;
   const [reviewService, setReviewService] = useState({});
+
   useEffect(() => {
     fetch(`http://localhost:5000/services/${review}`)
       .then((res) => res.json())
@@ -41,6 +42,12 @@ const MyReviewCard = ({ reviewD }) => {
       <div className="p-4 space-y-2 text-sm dark:text-gray-400">
         <p>{message}</p>
       </div>
+      <button
+        onClick={() => handleDelete(_id)}
+        className="btn btn-sm text-red-700 btn-ghost"
+      >
+        Delete
+      </button>
     </div>
   );
 };
