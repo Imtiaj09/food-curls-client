@@ -8,14 +8,15 @@ const About = () => {
         <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
           <p className="text-2xl font-bold text-red-500 pl-2 pb-5">About Us</p>
           <h1 className="text-5xl font-bold leading-none sm:text-6xl">
-            Acmattis
+            Traditional
             <br />
-            <span className="dark:text-violet-400">senectus</span> erat pharetra
+            <span className="dark:text-violet-400">Dishes You</span> Simply Must
+            Try
           </h1>
           <p className="mt-6 mb-8 text-lg sm:mb-12">
-            Dictum aliquam porta in condimentum ac integer
+            If you’re visiting Turkey soon, and want to learn more
             <br />
-            turpis pulvinar, est scelerisque ligula sem
+            about Turkish food, you’ve come to the right place.
           </p>
           <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
             <a
