@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ServicesCard from "./ServicesCard";
 
 const Services = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch("services.json")
+    fetch("http://localhost:5000/services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
@@ -27,6 +28,11 @@ const Services = () => {
         {services.map((service) => (
           <ServicesCard key={service._id} service={service}></ServicesCard>
         ))}
+      </div>
+      <div className="flex items-center justify-center mt-5 mb-5">
+        <Link to="/foodservices">
+          <button className="btn btn-active">See All</button>
+        </Link>
       </div>
     </div>
   );
