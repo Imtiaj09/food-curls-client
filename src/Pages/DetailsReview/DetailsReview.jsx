@@ -14,13 +14,30 @@ const DetailsReview = () => {
     const email = user?.email || "Unregister";
     const message = form.message.value;
 
-    const reviews = {
+    const review = {
       review: _id,
       name,
       rating,
       email,
       message,
     };
+
+    fetch("http://localhost:5000/reviews", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          form.reset();
+          alert("Thanks for your review.");
+        }
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -68,6 +85,7 @@ const DetailsReview = () => {
               name="rating"
               placeholder="Ratings"
               className="mb-4 input input-bordered w-full max-w-xs"
+              required
             />
             <input
               type="text"
@@ -82,6 +100,7 @@ const DetailsReview = () => {
               className="textarea textarea-bordered h-24"
               name="message"
               placeholder="Leave a Review..."
+              required
             ></textarea>
             <br />
             <input
