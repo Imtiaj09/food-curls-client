@@ -25,7 +25,10 @@ const MyReviewCard = ({ reviewD, handleDelete }) => {
           </div>
           <div>
             <h4 className="font-bold dark:text-black">{name}</h4>
-            <span className="text-xs dark:text-black">{serviceName}</span>
+            <span className="text-xs dark:text-black">
+              <span className="font-semibold">Recipe: </span>
+              {serviceName}
+            </span>
           </div>
         </div>
         <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -48,6 +51,7 @@ const MyReviewCard = ({ reviewD, handleDelete }) => {
       >
         Delete
       </button>
+      <button className="btn btn-sm text-blue-600 btn-ghost">Update</button>
     </div>
   );
 };
