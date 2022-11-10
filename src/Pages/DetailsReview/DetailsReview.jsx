@@ -16,6 +16,7 @@ const DetailsReview = () => {
 
     const review = {
       review: _id,
+      serviceName: title,
       name,
       rating,
       email,
