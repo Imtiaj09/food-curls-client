@@ -1,4 +1,5 @@
 import Main from "../../layout/Main";
+import DetailsReview from "../../Pages/DetailsReview/DetailsReview";
 import FoodServices from "../../Pages/FoodServices/FoodServices";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -26,6 +27,12 @@ const router = createBrowserRouter([
       {
         path: "/foodservices",
         element: <FoodServices />,
+      },
+      {
+        path: "/detailsreview/:id",
+        element: <DetailsReview />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/services/${params.id}`),
       },
     ],
   },

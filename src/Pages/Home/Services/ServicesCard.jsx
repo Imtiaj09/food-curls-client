@@ -19,11 +19,10 @@ const ServicesCard = ({ service }) => {
 
       <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
         <h1 class="text-lg font-bold text-white">Price: ${price}</h1>
-        <Link to={`foodservices/${_id}`}>
-          <button class="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none">
-            View Details
-          </button>
-        </Link>
+
+        <button class="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none">
+          View Details
+        </button>
       </div>
     </div>
   );
