@@ -5,7 +5,7 @@ const ReviewSideCard = ({ reviewField }) => {
   const [reviewService, setReviewService] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${review}`)
+    fetch(`https://food-curls-server.vercel.app/services/${review}`)
       .then((res) => res.json())
       .then((data) => setReviewService(data));
   }, [review]);

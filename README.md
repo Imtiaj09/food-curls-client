@@ -9,7 +9,7 @@ In the project directory, you can run with:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [Food Curls]() live link to view it in your browser.
+Open [Food Curls](https://food-curls.web.app/) live link to view it in your browser.
 
 **Note: All the features about EnCode!**
 

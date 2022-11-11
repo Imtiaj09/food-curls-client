@@ -10,7 +10,7 @@ const DetailsReview = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allReviews")
+    fetch("https://food-curls-server.vercel.app/allReviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
@@ -33,7 +33,7 @@ const DetailsReview = () => {
       message,
     };
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://food-curls-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

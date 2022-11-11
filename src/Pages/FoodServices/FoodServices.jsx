@@ -7,7 +7,7 @@ const FoodServices = () => {
   useTitle("Services");
 
   useEffect(() => {
-    fetch("http://localhost:5000/service")
+    fetch("https://food-curls-server.vercel.app/service")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);

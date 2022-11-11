@@ -21,7 +21,7 @@ const AddServices = () => {
       description,
     };
 
-    fetch("http://localhost:5000/addService", {
+    fetch("https://food-curls-server.vercel.app/addService", {
       method: "POST",
       headers: {
         "content-type": "application/json",
