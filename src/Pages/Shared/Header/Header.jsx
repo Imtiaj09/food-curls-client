@@ -32,11 +32,11 @@ const Header = () => {
   const afterLogin = (
     <>
       <li className="font-semibold">
+        <Link to="/reviews">My Reviews</Link>
+        <Link to="/addService">Add Services</Link>
         <Link onClick={handleLogOut} to="">
           Sign Out
         </Link>
-        <Link to="/reviews">My Reviews</Link>
-        <Link to="/addService">Add Services</Link>
       </li>
     </>
   );
