@@ -1,10 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const DetailsReview = () => {
   const { _id, img, price, title, description } = useLoaderData();
   const { user } = useContext(AuthContext);
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/allReviews")
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, []);
 
   const handlePlaceReview = (event) => {
     event.preventDefault();
@@ -15,6 +23,7 @@ const DetailsReview = () => {
     const message = form.message.value;
 
     const review = {
+      date: new Date(),
       review: _id,
       serviceName: title,
       name,
@@ -35,7 +44,13 @@ const DetailsReview = () => {
         console.log(data);
         if (data.acknowledged) {
           form.reset();
-          alert("Thanks for your review.");
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Thanks for your review.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       })
       .catch((err) => console.error(err));
@@ -111,12 +126,20 @@ const DetailsReview = () => {
             />
           </form>
           <div>
-            <h1 className="text-5xl font-bold">Box Office News!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+              <div className="card w-96 bg-base-100 shadow-xl image-full">
+                <figure>
+                  <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">Shoes!</h2>
+                  <p>If a dog chews shoes whose shoes does he choose?</p>
+                  <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

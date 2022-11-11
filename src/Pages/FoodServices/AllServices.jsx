@@ -10,7 +10,7 @@ const AllServices = ({ service }) => {
           {title}
         </h1>
         <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-          {/* {description.slice(0, 100)} + "..." */}
+          {description?.slice(0, 100) + "..."}
         </p>
       </div>
       <img className="object-cover w-full h-48 mt-2" src={img} alt="" />

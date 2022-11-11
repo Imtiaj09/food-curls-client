@@ -1,4 +1,5 @@
 import React from "react";
+import { PhotoView } from "react-photo-view";
 
 const ServicesCard = ({ service }) => {
   const { img, price, title, description } = service;
@@ -10,11 +11,15 @@ const ServicesCard = ({ service }) => {
           {title}
         </h1>
         <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-          {description.slice(0, 100) + "..."}
+          {description?.slice(0, 100) + "..."}
         </p>
       </div>
 
-      <img className="object-cover w-full h-48 mt-2" src={img} alt="" />
+      <figure>
+        <PhotoView src={img}>
+          <img className="object-cover w-full h-48 mt-2" src={img} alt="" />
+        </PhotoView>
+      </figure>
 
       <div className="flex items-center justify-between px-4 py-2 bg-gray-900">
         <h1 className="text-lg font-bold text-white">Price: ${price}</h1>

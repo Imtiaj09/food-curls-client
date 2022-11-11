@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const AddServices = () => {
   const handleAddService = (event) => {
@@ -28,13 +29,23 @@ const AddServices = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.acknowledged) {
+          form.reset();
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "New Service Card Add Successfully .",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
       })
       .catch((err) => console.error(err));
   };
 
   return (
     <section class="mb-6 max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-      <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">
+      <h2 class="text-xl text-center mb-8 font-semibold text-gray-700 capitalize dark:text-white">
         Add A Service
       </h2>
 
@@ -50,6 +61,7 @@ const AddServices = () => {
               placeholder="Enter A Service ID"
               type="text"
               class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+              required
             />
           </div>
 
@@ -63,6 +75,7 @@ const AddServices = () => {
               name="title"
               placeholder="Enter A Title"
               class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+              required
             />
           </div>
 
@@ -76,6 +89,7 @@ const AddServices = () => {
               name="img"
               placeholder="Enter a Image URL"
               class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+              required
             />
           </div>
 
@@ -92,6 +106,7 @@ const AddServices = () => {
               name="price"
               placeholder="Enter The Food Price"
               class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+              required
             />
           </div>
           <div>
@@ -104,6 +119,7 @@ const AddServices = () => {
               type="text"
               placeholder="Enter Your Description"
               class="block w-full px-2 py-10 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+              required
             />
           </div>
         </div>
