@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import ReviewSideCard from "./ReviewSideCard";
 
 const DetailsReview = () => {
   const { _id, img, price, title, description } = useLoaderData();
@@ -84,7 +85,7 @@ const DetailsReview = () => {
       <div className="hero">
         <div className="hero-content flex-col lg:flex-row">
           <form onSubmit={handlePlaceReview}>
-            <div className="ml-14 mb-6">
+            <div className="text-center mb-6">
               <h2 className="text-lg font-medium text-blue-600 uppercase dark:text-blue-400">
                 Your review matters!
               </h2>
@@ -125,22 +126,17 @@ const DetailsReview = () => {
               value="Submit"
             />
           </form>
-          <div>
-            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-              <div className="card w-96 bg-base-100 shadow-xl image-full">
-                <figure>
-                  <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">Shoes!</h2>
-                  <p>If a dog chews shoes whose shoes does he choose?</p>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <br />
+        </div>
+      </div>
+      <div>
+        <div className="grid mb-8 mt-6 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {reviews.map((reviewField) => (
+            <ReviewSideCard
+              key={reviewField._id}
+              reviewField={reviewField}
+            ></ReviewSideCard>
+          ))}
         </div>
       </div>
     </div>
