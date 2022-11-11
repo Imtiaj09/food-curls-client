@@ -51,6 +51,7 @@ const MyReviewCard = ({ reviewD, handleDelete }) => {
       >
         Delete
       </button>
+
       <button className="btn btn-sm text-blue-600 btn-ghost">Update</button>
     </div>
   );
